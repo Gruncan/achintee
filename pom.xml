@@ -11,7 +11,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <argLine>-Djava.library.path=${project.basedir}/build/src/native</argLine>
+                    <argLine>
+                        -Djava.library.path=${project.basedir}/build/src/native${path.separator}${project.basedir}/build/debug
+                    </argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -25,6 +27,18 @@
                         <arg>-h</arg>
                         <arg>${project.build.directory}/generated/jni</arg>
                     </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>dev.gruncan.Main</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

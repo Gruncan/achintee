@@ -4,7 +4,8 @@ public class Achintee {
 
 
     static {
-        System.loadLibrary("achintee");
+        System.loadLibrary("achintee_rs");
+//         System.loadLibrary("achintee");
     }
 
 
